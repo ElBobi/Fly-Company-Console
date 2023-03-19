@@ -34,13 +34,13 @@ namespace FlyCompanyConsoleApp.View
                             return;
                         }
 
-                    case ConsoleKey.D2:
+                    case ConsoleKey.D2 or ConsoleKey.NumPad2:
                         {
                             Register();
                             break;
                         }
 
-                    case ConsoleKey.D1:
+                    case ConsoleKey.D1 or ConsoleKey.NumPad1:
                         {
                             Login();
                             FlightView fv = new FlightView();

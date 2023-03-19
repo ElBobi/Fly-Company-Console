@@ -27,7 +27,6 @@ public partial class FlyContext : DbContext
 
     public virtual DbSet<Plane> Planes { get; set; }
 
-    public virtual DbSet<Seat> Seats { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -89,15 +88,6 @@ public partial class FlyContext : DbContext
         modelBuilder.Entity<Plane>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__planes__3213E83F6B6BAC36");
-        });
-
-        modelBuilder.Entity<Seat>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__seats__3213E83F4B8C7C8E");
-
-            entity.HasOne(d => d.Plane).WithMany(p => p.Seats)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__seats__plane_id__440B1D61");
         });
 
         modelBuilder.Entity<User>(entity =>

@@ -6,14 +6,13 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FlyCompanyConsoleApp.Controller
 {
     public class FlightController
     {
         public FlightController() { }
-        public void BookAFlight(string takeOffDestination, string landDestination, Date date)
+        public void BookAFlight(string takeOffDestination, string landDestination, DateTime date)
         {
             using (var dbcontext = new FlyContext())
             {
@@ -36,7 +35,7 @@ namespace FlyCompanyConsoleApp.Controller
                 }
                 Console.Clear();
 
-                Console.WriteLine($"You have booked flight:\n{flights[flightId].ToString()}");
+                Console.WriteLine($"You have booked flight:\n{flights[flightId]}");
                 FlightsTraveler ft = new FlightsTraveler();
                 ft.User = LoggerUser.loggerUser;
                 ft.UserId = LoggerUser.loggerUser.Id;

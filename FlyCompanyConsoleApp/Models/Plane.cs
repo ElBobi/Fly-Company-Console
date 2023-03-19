@@ -24,7 +24,4 @@ public partial class Plane
 
     [InverseProperty("Plane")]
     public virtual ICollection<Flight> Flights { get; } = new List<Flight>();
-
-    [InverseProperty("Plane")]
-    public virtual ICollection<Seat> Seats { get; } = new List<Seat>();
 }

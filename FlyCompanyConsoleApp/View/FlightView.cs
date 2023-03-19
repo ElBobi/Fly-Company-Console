@@ -28,7 +28,7 @@ namespace FlyCompanyConsoleApp.View
                 ConsoleKeyInfo key = Console.ReadKey();
                 switch (key.Key)
                 {
-                    case ConsoleKey.D1: // book a flight
+                    case ConsoleKey.D1 or ConsoleKey.NumPad1: // book a flight
                         {
                             Console.Clear();
 
@@ -40,18 +40,18 @@ namespace FlyCompanyConsoleApp.View
                             Console.WriteLine("Latest flight date (YY/MM/DD)");
                             string dateAsString = Console.ReadLine();
                             DateTime date = DateTime.Parse(dateAsString);
-                            flightController.BookAFlight();
+                            flightController.BookAFlight(takeOffDestination,landDestination,date);
                         }
                         break;
 
-                    case ConsoleKey.D2: // check flight history
+                    case ConsoleKey.D2 or ConsoleKey.NumPad2: // check flight history
                         {
                             Console.Clear();
                             flightController.CheckFlightHistory();
                         }
                         break;
 
-                    case ConsoleKey.D3: // log out
+                    case ConsoleKey.D3 or ConsoleKey.NumPad3: // log out
                         break;
 
                     default:
