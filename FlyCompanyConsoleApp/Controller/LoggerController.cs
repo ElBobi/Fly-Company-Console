@@ -26,8 +26,13 @@ namespace FlyCompanyConsoleApp.Controller
             string firstName = Console.ReadLine();
             Console.WriteLine("Last Name");
             string lastName = Console.ReadLine();
-            Console.WriteLine("Gender: (m or f)");
+            Console.WriteLine("Gender: (M or F)");
             string gender = Console.ReadLine();
+            if (gender != "M" && gender != "F")
+            {
+                CheckGender(gender);
+            }
+                
             Console.WriteLine("Phone number:");
             string phoneNumber = Console.ReadLine();
 
@@ -65,6 +70,23 @@ namespace FlyCompanyConsoleApp.Controller
                 return true;
             }
         }
+
+        private void CheckGender(string gender)
+        {
+            Console.WriteLine("Please enter a valid gender:");
+            while (true)
+            {
+                gender = Console.ReadLine();
+                if (gender != "M" && gender != "F")
+                {
+                    break;
+                }
+                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+            }
+        }
+
         public bool Login(string username, string password)
         {
             using (var dbcontext = new FlyContext())
@@ -96,14 +118,17 @@ namespace FlyCompanyConsoleApp.Controller
         }
         public void ConfirmPassword(string password)
         {
+            Console.WriteLine("Confirm password");
             while (true)
             {
-                Console.WriteLine("Confirm password");
                 string confirmPassword = Console.ReadLine();
                 if (password == confirmPassword)
                 {
                     break;
                 }
+                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
             }
         }
     }
