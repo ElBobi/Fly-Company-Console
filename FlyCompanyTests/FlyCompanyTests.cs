@@ -31,7 +31,7 @@ namespace FlyCompany.Tests
         public void LoginMethodShouldReturnTrueWhenGivenExistingData()
         {
             var logger = new LoggerController();
-            Assert.IsTrue(logger.Login("borisradin@abv.bg", "bobi45"));
+            Assert.IsTrue(logger.Login("penchi", "05"));
         }
     }
 }

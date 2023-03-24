@@ -1,10 +1,5 @@
 ﻿using FlyCompanyConsoleApp.Controller;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlyCompanyConsoleApp.View
 {
@@ -21,6 +16,7 @@ namespace FlyCompanyConsoleApp.View
         {
             while (true)
             {
+                // Display menu options
                 Console.WriteLine("Press 1 to manage Flights");
                 Console.WriteLine("Press 2 to manage Users");
                 Console.WriteLine("Press 3 to manage Employees");
@@ -29,23 +25,30 @@ namespace FlyCompanyConsoleApp.View
 
                 ConsoleKeyInfo key = Console.ReadKey();
                 Console.Clear();
+
                 switch (key.Key)
                 {
                     case ConsoleKey.D1 or ConsoleKey.NumPad1:
                         {
+                            // Display flight management options
                             Console.WriteLine("Press 1 to add a flight");
                             Console.WriteLine("Press 2 to remove a flight");
                             Console.WriteLine("Press ESC to exit this menu");
+
                             key = Console.ReadKey();
+                            Console.Clear();
+
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
                                     {
+                                        // Call method to add a flight
                                         AddAFlight();
                                         break;
                                     }
                                 case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                     {
+                                        // Call method to remove a flight
                                         RemoveAFlight();
                                         break;
                                     }
@@ -54,23 +57,30 @@ namespace FlyCompanyConsoleApp.View
                                 default:
                                     continue;
                             }
+
                             break;
                         }
                     case ConsoleKey.D2 or ConsoleKey.NumPad2:
                         {
-                            Console.WriteLine("Press 1 to make an user admin");
+                            // Display user management options
+                            Console.WriteLine("Press 1 to make a user admin");
                             Console.WriteLine("Press 2 to ban a user");
                             Console.WriteLine("Press ESC to exit the menu");
+
                             key = Console.ReadKey();
+                            Console.Clear();
+
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
                                     {
+                                        // Call method to make a user admin
                                         MakeAdmin();
                                         break;
                                     }
                                 case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                     {
+                                        // Call method to ban a user
                                         BanUser();
                                         break;
                                     }
@@ -79,29 +89,37 @@ namespace FlyCompanyConsoleApp.View
                                 default:
                                     continue;
                             }
+
                             break;
                         }
                     case ConsoleKey.D3 or ConsoleKey.NumPad3:
                         {
+                            // Display employee management options
                             Console.WriteLine("Press 1 to add an employee to a flight");
                             Console.WriteLine("Press 2 to add a new employee");
                             Console.WriteLine("Press 3 to remove an employee");
                             Console.WriteLine("Press ESC to exit the menu");
+
                             key = Console.ReadKey();
+                            Console.Clear();
+
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
                                     {
+                                        // Call method to add an employee to a flight
                                         AddEmployeeToAFlight();
                                         break;
                                     }
                                 case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                     {
+                                        // Call method to add a new employee
                                         AddEmployee();
                                         break;
                                     }
                                 case ConsoleKey.D3 or ConsoleKey.NumPad3:
                                     {
+                                        // Call method to remove an employee
                                         BanEmployee();
                                         break;
                                     }
@@ -110,10 +128,12 @@ namespace FlyCompanyConsoleApp.View
                                 default:
                                     continue;
                             }
+
                             break;
                         }
                     case ConsoleKey.D4 or ConsoleKey.NumPad4:
                         {
+                            // Display plane management options
                             Console.WriteLine("Press 1 to add a plane");
                             Console.WriteLine("Press 2 to remove a plane");
                             Console.WriteLine("Press ESC to exit the menu");
@@ -137,6 +157,8 @@ namespace FlyCompanyConsoleApp.View
                             }
                             break;
                         }
+                    case ConsoleKey.Escape:
+                        return;
                     default:
                         continue;
                 }
@@ -145,22 +167,36 @@ namespace FlyCompanyConsoleApp.View
 
         private void RemoveAPlane()
         {
-            throw new NotImplementedException();
+            Console.Write("Plane ID: ");
+            int planeId = int.Parse(Console.ReadLine());
+            adminController.RemoveAPlane(planeId);
         }
 
         private void AddPlane()
         {
-            throw new NotImplementedException();
+            Console.Write("Capacity: ");
+            int capacity = int.Parse(Console.ReadLine());
+            adminController.AddPlane(capacity);
         }
 
         private void BanEmployee()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("First name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Last name: ");
+            string lastName = Console.ReadLine();
+            adminController.BanEmployee(firstName, lastName);
         }
 
         private void AddEmployee()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("First name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Last name: ");
+            string lastName = Console.ReadLine();
+            adminController.AddEmployee(firstName, lastName);
         }
 
         private void AddEmployeeToAFlight()

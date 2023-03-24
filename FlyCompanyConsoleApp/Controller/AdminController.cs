@@ -1,4 +1,5 @@
 ﻿using FlyCompanyConsoleApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace FlyCompanyConsoleApp.Controller
                     if (flight != null)
                     {
                         dbcontext.Flights.Remove(flight);
+                        dbcontext.SaveChanges();  // Save changes after removing the flight
                         break;
                     }
                     Console.WriteLine("There is no such flight");
@@ -55,6 +57,7 @@ namespace FlyCompanyConsoleApp.Controller
                     if (username != null)
                     {
                         dbcontext.Users.FirstOrDefault(x => x.Username == username).IsAdmin = true;
+                        dbcontext.SaveChanges();  // Save changes after making the user an admin
                         break;
                     }
                     Console.WriteLine("Username cannot be null");
@@ -77,6 +80,7 @@ namespace FlyCompanyConsoleApp.Controller
                         if (user != null)
                         {
                             dbcontext.Users.Remove(user);
+                            dbcontext.SaveChanges();  // Save changes after removing the user
                             break;
                         }
                         Console.WriteLine("Username doesn't exist");
@@ -102,8 +106,13 @@ namespace FlyCompanyConsoleApp.Controller
                     var employee = dbcontext.Employees.FirstOrDefault(x => x.FirstName == firstName && x.LastName == lastName);
                     if (employee != null)
                     {
-                        Console.Write("FLight ID: ");
-                        int flightId = int.Parse(Console.ReadLine());
+                        Console.Write("Flight ID: ");
+                        int flightId;
+                        if (!int.TryParse(Console.ReadLine(), out flightId))
+                        {
+                            Console.WriteLine("Invalid input for Flight ID. Please enter an integer value.");
+                            continue;
+                        }
                         var flight = dbcontext.Flights.FirstOrDefault(x => x.Id == flightId);
                         if (flight != null)
                         {
@@ -111,9 +120,36 @@ namespace FlyCompanyConsoleApp.Controller
                             flightsCrew.Employee = employee;
                             flightsCrew.Flight = flight;
                             dbcontext.FlightsCrews.Add(flightsCrew);
+                            dbcontext.SaveChanges();
+                            break;
                         }
-                        Console.WriteLine("Flight doesn't exist");
-                        continue;
+                        else
+                        {
+                            Console.WriteLine("No flight with this ID exists.");
+                            continue;
+                        }
+                    }
+                    Console.WriteLine("No employee with this name exists.");
+                    Console.Write("First name: ");
+                    firstName = Console.ReadLine();
+                    Console.Write("Last name: ");
+                    lastName = Console.ReadLine();
+                    Console.Clear();
+                }
+            }
+        }
+
+        public void AddEmployee(string firstName, string lastName)
+        {
+            using (var dbcontext = new FlyContext())
+            {
+                while (true)
+                {
+                    var employee = dbcontext.Employees.FirstOrDefault(x => x.FirstName == firstName && x.LastName == lastName);
+                    if (employee != null)
+                    {
+                        dbcontext.Employees.Add(employee);
+                        break; 
                     }
                     Console.WriteLine("Employee doesn't exist");
                     Console.Write("First name: ");
@@ -122,6 +158,63 @@ namespace FlyCompanyConsoleApp.Controller
                     lastName = Console.ReadLine();
                     Console.Clear();
                 }
+                dbcontext.SaveChanges(); // Save the changes made to the database
+            }
+        }
+
+        internal void BanEmployee(string? firstName, string? lastName)
+        {
+            using (var dbcontext = new FlyContext())
+            {
+                while (true)
+                {
+                    var employee = dbcontext.Employees.FirstOrDefault(x => x.FirstName == firstName && x.LastName == lastName);
+                    if (employee != null)
+                    {
+                        dbcontext.Employees.Remove(employee);
+                        break; 
+                    }
+                    Console.WriteLine("Employee doesn't exist");
+                    Console.Write("First name: ");
+                    firstName = Console.ReadLine();
+                    Console.Write("Last name: ");
+                    lastName = Console.ReadLine();
+                    Console.Clear();
+                }
+                dbcontext.SaveChanges(); // Save the changes made to the database
+            }
+        }
+
+        public void AddPlane(int capacity)
+        {
+            using (var dbcontext = new FlyContext())
+            {
+                var plane = new Plane();
+                plane.Capacity = capacity;
+                dbcontext.Planes.Add(plane);
+                dbcontext.SaveChanges(); // Save the changes made to the database
+            }
+
+        }
+
+        public void RemoveAPlane(int planeId)
+        {
+            using (var dbcontext = new FlyContext())
+            {
+                while (true)
+                {
+                    var plane = dbcontext.Planes.FirstOrDefault(x => x.Id == planeId);
+                    if (plane != null)
+                    {
+                        dbcontext.Planes.Remove(plane);
+                        dbcontext.SaveChanges(); //
+                        break;
+                    }
+                    Console.WriteLine("No place with this id");
+                    Console.Write("Plane ID: ");
+                    planeId = int.Parse(Console.ReadLine());
+                }
+                
             }
         }
     }

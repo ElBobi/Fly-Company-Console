@@ -16,12 +16,6 @@ public partial class Plane
     [Column("capacity")]
     public int Capacity { get; set; }
 
-    [Column("count_of_first_class_seats")]
-    public int CountOfFirstClassSeats { get; set; }
-
-    [Column("count_of_second_class_seats")]
-    public int CountOfSecondClassSeats { get; set; }
-
     [InverseProperty("Plane")]
     public virtual ICollection<Flight> Flights { get; } = new List<Flight>();
 }

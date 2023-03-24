@@ -48,8 +48,11 @@ namespace FlyCompanyConsoleApp.View
                                 AdminView av = new AdminView();
                                 av.Run();
                             }
-                            FlightView fv = new FlightView();
-                            fv.Run();
+                            else
+                            {
+                                FlightView fv = new FlightView();
+                                fv.Run();
+                            }
 
                         }
                         break;
