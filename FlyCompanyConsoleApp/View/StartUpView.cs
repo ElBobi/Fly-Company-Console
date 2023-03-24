@@ -43,6 +43,11 @@ namespace FlyCompanyConsoleApp.View
                     case ConsoleKey.D1 or ConsoleKey.NumPad1:
                         {
                             Login();
+                            if (LoggerUser.loggerUser.IsAdmin == true)
+                            {
+                                AdminView av = new AdminView();
+                                av.Run();
+                            }
                             FlightView fv = new FlightView();
                             fv.Run();
 
@@ -60,9 +65,9 @@ namespace FlyCompanyConsoleApp.View
             Console.Clear();
             while (true)
             {
-                Console.WriteLine("Username: ");
+                Console.Write("Username: ");
                 string username = Console.ReadLine();
-                Console.WriteLine("Password: ");
+                Console.Write("Password: ");
                 string password = Console.ReadLine();
                 if (loggerController.Login(username, password))
                 {

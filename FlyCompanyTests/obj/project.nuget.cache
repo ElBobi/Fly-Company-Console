@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SKF5r/yigb6fkOq6s5sXi/kbSxJpaNDzyZymyn0uoAA74o/ndWDSC8xYVtZsOI0WMSipl4U3Fh0gGtB1MDmsgA==",
+  "dgSpecHash": "VLbna7aTpz9iM3PIIBWx8Z/jMv8ZkYuk/yGVC4+yr3elKAjAZ3JWZdhHn7jnwDXt8oo5yv1IdxHXMZkjGx+veg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
+  "projectFilePath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1234\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

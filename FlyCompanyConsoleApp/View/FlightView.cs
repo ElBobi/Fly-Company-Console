@@ -13,7 +13,7 @@ namespace FlyCompanyConsoleApp.View
     public class FlightView
     {
         private FlightController flightController;
-        public FlightView() 
+        public FlightView()
         {
             flightController = new FlightController();
         }
@@ -40,7 +40,7 @@ namespace FlyCompanyConsoleApp.View
                             Console.WriteLine("Latest flight date (YY/MM/DD)");
                             string dateAsString = Console.ReadLine();
                             DateTime date = DateTime.Parse(dateAsString);
-                            flightController.BookAFlight(takeOffDestination,landDestination,date);
+                            flightController.BookAFlight(takeOffDestination, landDestination, date);
                         }
                         break;
 
@@ -58,7 +58,6 @@ namespace FlyCompanyConsoleApp.View
                         continue;
                 }
                 Console.Clear();
-                break;
 
             }
         }

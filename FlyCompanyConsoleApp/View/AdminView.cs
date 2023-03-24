@@ -28,13 +28,13 @@ namespace FlyCompanyConsoleApp.View
                 Console.WriteLine("Press ESC to terminate the program");
 
                 ConsoleKeyInfo key = Console.ReadKey();
+                Console.Clear();
                 switch (key.Key)
                 {
                     case ConsoleKey.D1 or ConsoleKey.NumPad1:
                         {
                             Console.WriteLine("Press 1 to add a flight");
-                            Console.WriteLine("Press 2 to edit a flight");
-                            Console.WriteLine("Press 3 to remove a flight");
+                            Console.WriteLine("Press 2 to remove a flight");
                             Console.WriteLine("Press ESC to exit this menu");
                             key = Console.ReadKey();
                             switch (key.Key)
@@ -45,11 +45,6 @@ namespace FlyCompanyConsoleApp.View
                                         break;
                                     }
                                 case ConsoleKey.D2 or ConsoleKey.NumPad2:
-                                    {
-                                        EditAFlight();
-                                        break;
-                                    }
-                                case ConsoleKey.D3 or ConsoleKey.NumPad3:
                                     {
                                         RemoveAFlight();
                                         break;
@@ -66,6 +61,7 @@ namespace FlyCompanyConsoleApp.View
                             Console.WriteLine("Press 1 to make an user admin");
                             Console.WriteLine("Press 2 to ban a user");
                             Console.WriteLine("Press ESC to exit the menu");
+                            key = Console.ReadKey();
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
@@ -91,6 +87,7 @@ namespace FlyCompanyConsoleApp.View
                             Console.WriteLine("Press 2 to add a new employee");
                             Console.WriteLine("Press 3 to remove an employee");
                             Console.WriteLine("Press ESC to exit the menu");
+                            key = Console.ReadKey();
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
@@ -117,23 +114,18 @@ namespace FlyCompanyConsoleApp.View
                         }
                     case ConsoleKey.D4 or ConsoleKey.NumPad4:
                         {
-                            Console.WriteLine("Press 1 to add a flight to a plane");
-                            Console.WriteLine("Press 2 to add a plane");
-                            Console.WriteLine("Press 3 to remove a plane");
+                            Console.WriteLine("Press 1 to add a plane");
+                            Console.WriteLine("Press 2 to remove a plane");
                             Console.WriteLine("Press ESC to exit the menu");
+                            key = Console.ReadKey();
                             switch (key.Key)
                             {
                                 case ConsoleKey.D1 or ConsoleKey.NumPad1:
                                     {
-                                        AddFlightToPlane();
-                                        break;
-                                    }
-                                case ConsoleKey.D2 or ConsoleKey.NumPad2:
-                                    {
                                         AddPlane();
                                         break;
                                     }
-                                    case ConsoleKey.D3 or ConsoleKey.NumPad3:
+                                case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                     {
                                         RemoveAPlane();
                                         break;
@@ -148,7 +140,6 @@ namespace FlyCompanyConsoleApp.View
                     default:
                         continue;
                 }
-
             }
         }
 
@@ -158,11 +149,6 @@ namespace FlyCompanyConsoleApp.View
         }
 
         private void AddPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AddFlightToPlane()
         {
             throw new NotImplementedException();
         }
@@ -179,32 +165,55 @@ namespace FlyCompanyConsoleApp.View
 
         private void AddEmployeeToAFlight()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("First name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Last name: ");
+            string lastName = Console.ReadLine();
+            adminController.AddEmployeeToAFlight(firstName, lastName);
         }
 
         private void BanUser()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("Username of the user: ");
+            string username = Console.ReadLine();
+            adminController.BanUser(username);
         }
 
         private void MakeAdmin()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("Username of the user: ");
+            string username = Console.ReadLine();
+            adminController.MakeAdmin(username);
         }
 
         private void RemoveAFlight()
         {
-            throw new NotImplementedException();
-        }
+            Console.Clear();
+            Console.Write("Flight Id:");
+            int flightId = int.Parse(Console.ReadLine());
+            adminController.RemoveAFlight(flightId);
 
-        private void EditAFlight()
-        {
-            throw new NotImplementedException();
         }
 
         private void AddAFlight()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.Write("From: ");
+            string fromDestination = Console.ReadLine();
+            Console.Write("\nTo: ");
+            string toDestination = Console.ReadLine();
+            Console.Write("\nTake off time (DD/MM/YYYY): ");
+            string takeOffTimeString = Console.ReadLine();
+            DateTime takeOffTime = DateTime.Parse(takeOffTimeString);
+            Console.Write("Approximate landing time: ");
+            string landTimeString = Console.ReadLine();
+            DateTime landTime = DateTime.Parse(landTimeString);
+            Console.Write("Plane ID: ");
+            int planeId = int.Parse(Console.ReadLine());
+            adminController.AddAFlight(fromDestination, toDestination, takeOffTime, landTime, planeId);
         }
     }
 }

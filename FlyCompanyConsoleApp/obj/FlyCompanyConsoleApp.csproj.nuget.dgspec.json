@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {}
+    "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
+    "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
         "projectName": "FlyCompanyConsoleApp",
-        "projectPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
+        "projectPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
         "packagesPath": "C:\\Users\\1234\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\FlyCompanyConsoleApp\\obj\\",
+        "outputPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1234\\AppData\\Roaming\\NuGet\\NuGet.Config",

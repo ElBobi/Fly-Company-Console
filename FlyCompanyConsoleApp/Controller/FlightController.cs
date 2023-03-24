@@ -47,7 +47,7 @@ namespace FlyCompanyConsoleApp.Controller
         }
         public void CheckFlightHistory()
         {
-            using (FlyContext dbcontext = new FlyContext()) 
+            using (FlyContext dbcontext = new FlyContext())
             {
                 var flights = dbcontext.FlightsTravelers.Where(x => x.User == LoggerUser.loggerUser);
                 foreach (var flight in flights)
