@@ -101,7 +101,6 @@ namespace FlyCompanyConsoleApp.View
                             Console.WriteLine("Press ESC to exit the menu");
 
                             key = Console.ReadKey();
-                            Console.Clear();
 
                             switch (key.Key)
                             {
@@ -167,6 +166,7 @@ namespace FlyCompanyConsoleApp.View
 
         private void RemoveAPlane()
         {
+            Console.Clear();
             Console.Write("Plane ID: ");
             int planeId = int.Parse(Console.ReadLine());
             adminController.RemoveAPlane(planeId);
@@ -174,6 +174,7 @@ namespace FlyCompanyConsoleApp.View
 
         private void AddPlane()
         {
+            Console.Clear();
             Console.Write("Capacity: ");
             int capacity = int.Parse(Console.ReadLine());
             adminController.AddPlane(capacity);
@@ -196,7 +197,19 @@ namespace FlyCompanyConsoleApp.View
             string firstName = Console.ReadLine();
             Console.Write("Last name: ");
             string lastName = Console.ReadLine();
-            adminController.AddEmployee(firstName, lastName);
+            Console.Write("Type of employee (Stewardess/Pilot): ");
+            string type = Console.ReadLine();
+            if (type != "Stewardess" && type != "Pilot")
+            {
+                CheckType(type);
+            }
+            Console.Write("Gender (Male/Female/Unknown): ");
+            string gender = Console.ReadLine();
+            if (gender != "Male" && gender != "Female" && gender != "Unknown")
+            {
+                CheckGender(gender);
+            }
+            adminController.AddEmployee(firstName, lastName,type,gender);
         }
 
         private void AddEmployeeToAFlight()
@@ -250,6 +263,48 @@ namespace FlyCompanyConsoleApp.View
             Console.Write("Plane ID: ");
             int planeId = int.Parse(Console.ReadLine());
             adminController.AddAFlight(fromDestination, toDestination, takeOffTime, landTime, planeId);
+        }
+        private void CheckGender(string gender)
+        {
+            Console.WriteLine("Please enter a valid gender:");
+
+            // Loop until the user enters a valid gender
+            while (true)
+            {
+                gender = Console.ReadLine();
+
+                // If the gender is valid, exit the loop
+                if (gender == "Male" || gender == "Female" || gender == "Unknown")
+                {
+                    break;
+                }
+
+                // Otherwise, clear the console and prompt the user again
+                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+            }
+        }
+        private void CheckType(string type)
+        {
+            Console.WriteLine("Please enter a valid type:");
+
+            // Loop until the user enters a valid gender
+            while (true)
+            {
+                type = Console.ReadLine();
+
+                // If the gender is valid, exit the loop
+                if (type == "Pilot" || type == "Stewardess")
+                {
+                    break;
+                }
+
+                // Otherwise, clear the console and prompt the user again
+                Console.SetCursorPosition(0, Console.CursorTop - 1);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+            }
         }
     }
 }

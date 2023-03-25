@@ -48,6 +48,8 @@ namespace FlyCompanyConsoleApp.View
                         {
                             Console.Clear();
                             flightController.CheckFlightHistory();
+                            Console.WriteLine("\nPress any key to return to the menu: ");
+                            ConsoleKeyInfo key2 = Console.ReadKey();
                         }
                         break;
 

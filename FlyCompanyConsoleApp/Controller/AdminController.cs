@@ -15,14 +15,36 @@ namespace FlyCompanyConsoleApp.Controller
         {
             using (var dbcontext = new FlyContext())
             {
+                while (fromDestination == null || toDestination == null || takeOffTime == null || landTime == null)
+                {
+                    Console.WriteLine("Please fill all the fields\n");
+                    Console.Write("From: ");
+                    fromDestination = Console.ReadLine();
+                    Console.Write("\nTo: ");
+                    toDestination = Console.ReadLine();
+                    Console.Write("\nTake off time (DD/MM/YYYY): ");
+                    string takeOffTimeString = Console.ReadLine();
+                    takeOffTime = DateTime.Parse(takeOffTimeString);
+                    Console.Write("Approximate landing time: ");
+                    string landTimeString = Console.ReadLine();
+                    landTime = DateTime.Parse(landTimeString);
+                    Console.Write("Plane ID: ");
+                    planeId = int.Parse(Console.ReadLine());
+                }
                 Flight flight = new Flight();
                 flight.FromDestination = fromDestination;
                 flight.ToDestination = toDestination;
                 flight.TakeOffTime = takeOffTime;
                 flight.LandTime = landTime;
+                while (dbcontext.Planes.FirstOrDefault(x => x.Id == planeId) == null)
+                {
+                    Console.WriteLine("Wrong planeId. Please enter a valid one:");
+                    planeId = int.Parse(Console.ReadLine());
+                }
                 flight.PlaneId = planeId;
                 dbcontext.Flights.Add(flight);
                 dbcontext.SaveChanges();
+                Console.Clear();
             }
         }
 
@@ -37,12 +59,12 @@ namespace FlyCompanyConsoleApp.Controller
                     {
                         dbcontext.Flights.Remove(flight);
                         dbcontext.SaveChanges();  // Save changes after removing the flight
+                        Console.Clear();
                         break;
                     }
                     Console.WriteLine("There is no such flight");
                     Console.Write("Flight ID: ");
                     flightId = int.Parse(Console.ReadLine());
-                    Console.Clear();
                 }
 
             }
@@ -58,12 +80,12 @@ namespace FlyCompanyConsoleApp.Controller
                     {
                         dbcontext.Users.FirstOrDefault(x => x.Username == username).IsAdmin = true;
                         dbcontext.SaveChanges();  // Save changes after making the user an admin
+                        Console.Clear();
                         break;
                     }
                     Console.WriteLine("Username cannot be null");
                     Console.Write("Username of the user: ");
                     username = Console.ReadLine();
-                    Console.Clear();
                 }
             }
         }
@@ -81,17 +103,16 @@ namespace FlyCompanyConsoleApp.Controller
                         {
                             dbcontext.Users.Remove(user);
                             dbcontext.SaveChanges();  // Save changes after removing the user
+                            Console.Clear();
                             break;
                         }
                         Console.WriteLine("Username doesn't exist");
                         username = Console.ReadLine();
-                        Console.Clear();
                         continue;
                     }
                     Console.WriteLine("Username cannot be null");
                     Console.Write("Username of the user: ");
                     username = Console.ReadLine();
-                    Console.Clear();
                 }
             }
 
@@ -121,6 +142,7 @@ namespace FlyCompanyConsoleApp.Controller
                             flightsCrew.Flight = flight;
                             dbcontext.FlightsCrews.Add(flightsCrew);
                             dbcontext.SaveChanges();
+                            Console.Clear();
                             break;
                         }
                         else
@@ -129,34 +151,44 @@ namespace FlyCompanyConsoleApp.Controller
                             continue;
                         }
                     }
-                    Console.WriteLine("No employee with this name exists.");
-                    Console.Write("First name: ");
-                    firstName = Console.ReadLine();
-                    Console.Write("Last name: ");
-                    lastName = Console.ReadLine();
-                    Console.Clear();
+                    else
+                    {
+                        Console.WriteLine("No employee with this name exists.");
+                        Console.Write("First name: ");
+                        firstName = Console.ReadLine();
+                        Console.Write("Last name: ");
+                        lastName = Console.ReadLine();
+                    }
                 }
             }
         }
 
-        public void AddEmployee(string firstName, string lastName)
+        public void AddEmployee(string firstName, string lastName, string type, string gender)
         {
             using (var dbcontext = new FlyContext())
             {
                 while (true)
                 {
-                    var employee = dbcontext.Employees.FirstOrDefault(x => x.FirstName == firstName && x.LastName == lastName);
-                    if (employee != null)
+                    if (firstName != null && lastName != null && type != null && gender != null)
                     {
+                        var employee = new Employee();
+                        employee.FirstName = firstName;
+                        employee.LastName = lastName;
+                        employee.Type = type;
+                        employee.Gender = gender;
                         dbcontext.Employees.Add(employee);
-                        break; 
+                        Console.Clear();
+                        break;
                     }
-                    Console.WriteLine("Employee doesn't exist");
+                    Console.WriteLine("Please fill all fields:\n");
                     Console.Write("First name: ");
                     firstName = Console.ReadLine();
                     Console.Write("Last name: ");
                     lastName = Console.ReadLine();
-                    Console.Clear();
+                    Console.Write("Type of employee (Stewardess/Pilot): ");
+                    type = Console.ReadLine();
+                    Console.Write("Gender (Male/Female/Unknown): ");
+                    gender = Console.ReadLine();
                 }
                 dbcontext.SaveChanges(); // Save the changes made to the database
             }
@@ -172,14 +204,14 @@ namespace FlyCompanyConsoleApp.Controller
                     if (employee != null)
                     {
                         dbcontext.Employees.Remove(employee);
-                        break; 
+                        Console.Clear();
+                        break;
                     }
                     Console.WriteLine("Employee doesn't exist");
                     Console.Write("First name: ");
                     firstName = Console.ReadLine();
                     Console.Write("Last name: ");
                     lastName = Console.ReadLine();
-                    Console.Clear();
                 }
                 dbcontext.SaveChanges(); // Save the changes made to the database
             }
@@ -207,14 +239,15 @@ namespace FlyCompanyConsoleApp.Controller
                     if (plane != null)
                     {
                         dbcontext.Planes.Remove(plane);
-                        dbcontext.SaveChanges(); //
+                        dbcontext.SaveChanges();
+                        Console.Clear();
                         break;
                     }
                     Console.WriteLine("No place with this id");
                     Console.Write("Plane ID: ");
                     planeId = int.Parse(Console.ReadLine());
                 }
-                
+
             }
         }
     }

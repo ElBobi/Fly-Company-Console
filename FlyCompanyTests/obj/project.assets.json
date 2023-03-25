@@ -6360,19 +6360,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\1234\\.nuget\\packages\\": {}
+    "C:\\Users\\manda\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
+      "projectUniqueName": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
       "projectName": "FlyCompanyTests",
-      "projectPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
-      "packagesPath": "C:\\Users\\1234\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyTests\\obj\\",
+      "projectPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
+      "packagesPath": "C:\\Users\\manda\\.nuget\\packages\\",
+      "outputPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\1234\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\manda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6386,8 +6386,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
-              "projectPath": "C:\\Users\\1234\\Desktop\\Fly Company\\Fly-Company-Console\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj"
+            "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
+              "projectPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj"
             }
           }
         }
@@ -6439,7 +6439,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,6 +9,8 @@ namespace FlyCompanyConsoleApp
     {
         static void Main(string[] args)
         {
+            var dbcontext = new FlyContext();
+            dbcontext.Database.EnsureCreated();
             var startupView = new StartUpView();
             startupView.Run();
         }

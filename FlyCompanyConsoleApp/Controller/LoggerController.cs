@@ -130,7 +130,7 @@ namespace FlyCompanyConsoleApp.Controller
                 gender = Console.ReadLine();
 
                 // If the gender is valid, exit the loop
-                if (gender != "Male" && gender != "Female" && gender != "Unknown")
+                if (gender == "Male" || gender == "Female" || gender == "Unknown")
                 {
                     break;
                 }

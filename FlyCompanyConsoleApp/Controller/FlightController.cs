@@ -21,35 +21,40 @@ namespace FlyCompanyConsoleApp.Controller
                                 .Where(x => x.FromDestination == takeOffDestination && x.ToDestination == landDestination)
                                 .Take(30)
                                 .ToList();
-                foreach (var flight in flights)
+                Console.WriteLine();
+                foreach (var f in flights)
                 {
-                    Console.WriteLine($"{flight}\n------------------");
+                    Console.WriteLine($"{f}\n------------------");
                 }
 
-                Console.WriteLine("\nSelect the number of the flight you want to book:");
+                Console.WriteLine("\nSelect the id of the flight you want to book:");
                 int flightId = int.Parse(Console.ReadLine());
-                while (flightId < 0 || flightId > flights.Count())
+                var flight = dbcontext.Flights.FirstOrDefault(x => x.Id == flightId);
+                while (flight == null)
                 {
                     Console.WriteLine("This is not a valid flight");
                     flightId = int.Parse(Console.ReadLine());
+                    flight = dbcontext.Flights.FirstOrDefault(x => x.Id == flightId);
                 }
                 Console.Clear();
 
-                Console.WriteLine($"You have booked flight:\n{flights[flightId]}");
-                FlightsTraveler ft = new FlightsTraveler();
-                ft.User = LoggerUser.loggerUser;
-                ft.UserId = LoggerUser.loggerUser.Id;
-                ft.Flight = dbcontext.Flights.FirstOrDefault(x => x.Id == flights[flightId].Id);
-                ft.FlightId = flights[flightId].Id;
+                Console.WriteLine($"You have booked flight:\n{flight}");
+                FlightsTraveler ft = new FlightsTraveler()
+                {
+                    UserId = LoggerUser.loggerUser.Id,
+                    FlightId = flight.Id
+                };
+
                 dbcontext.FlightsTravelers.Add(ft);
                 dbcontext.SaveChanges();
+
             }
         }
         public void CheckFlightHistory()
         {
             using (FlyContext dbcontext = new FlyContext())
             {
-                var flights = dbcontext.FlightsTravelers.Where(x => x.User == LoggerUser.loggerUser);
+                var flights = dbcontext.FlightsTravelers.Where(x => x.User.Id == LoggerUser.loggerUser.Id).ToList();
                 foreach (var flight in flights)
                 {
                     Console.WriteLine(flight);
