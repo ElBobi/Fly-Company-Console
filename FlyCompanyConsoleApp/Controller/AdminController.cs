@@ -58,6 +58,12 @@ namespace FlyCompanyConsoleApp.Controller
                     if (flight != null)
                     {
                         dbcontext.Flights.Remove(flight);
+                        var canceledFlight = new CanceledFlight()
+                        {
+                            Flight = flight,
+                            FlightId = flight.Id,
+                        };
+                        dbcontext.CanceledFlights.Add(canceledFlight);
                         dbcontext.SaveChanges();  // Save changes after removing the flight
                         Console.Clear();
                         break;

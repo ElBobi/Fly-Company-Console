@@ -24,7 +24,7 @@ namespace FlyCompanyConsoleApp.View
 
                 Console.WriteLine("Press '1' if you want to book a flight");
                 Console.WriteLine("Press '2' if you want to check flight history");
-                Console.WriteLine("Press '3' to log out");
+                Console.WriteLine("Press Escape to log out");
                 ConsoleKeyInfo key = Console.ReadKey();
                 switch (key.Key)
                 {
@@ -53,14 +53,17 @@ namespace FlyCompanyConsoleApp.View
                         }
                         break;
 
-                    case ConsoleKey.D3 or ConsoleKey.NumPad3: // log out
-                        break;
+                    case ConsoleKey.Escape: // Log out
+                        {
+                            Console.Clear();
+                            return;
+                        }
+                        
 
                     default:
                         continue;
                 }
                 Console.Clear();
-
             }
         }
     }

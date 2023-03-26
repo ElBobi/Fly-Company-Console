@@ -54,11 +54,12 @@ namespace FlyCompanyConsoleApp.Controller
         {
             using (FlyContext dbcontext = new FlyContext())
             {
-                var flights = dbcontext.FlightsTravelers.Where(x => x.User.Id == LoggerUser.loggerUser.Id).ToList();
-                foreach (var flight in flights)
+                List<Flight> flights0 = dbcontext.FlightsTravelers.Where(x => x.User == LoggerUser.loggerUser).Select(x => x.Flight).OrderBy(x => x.TakeOffTime).ToList();
+                Console.WriteLine($"\nHere are the flights user {LoggerUser.loggerUser.Username} have booked in ascending order from the oldest to the newest: \n");
+                for (int i = 0; i < flights0.Count; i++)
                 {
-                    Console.WriteLine(flight);
-                    Console.WriteLine("\n---------------------\n");
+                    Console.WriteLine($"Flight No{i+1}:");
+                    Console.WriteLine(flights0[i]);
                 }
             }
         }

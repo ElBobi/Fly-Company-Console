@@ -6365,11 +6365,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
+      "projectUniqueName": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
       "projectName": "FlyCompanyTests",
-      "projectPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
+      "projectPath": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyTests\\FlyCompanyTests.csproj",
       "packagesPath": "C:\\Users\\manda\\.nuget\\packages\\",
-      "outputPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyTests\\obj\\",
+      "outputPath": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\manda\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6386,8 +6386,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
-              "projectPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj"
+            "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj": {
+              "projectPath": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj"
             }
           }
         }

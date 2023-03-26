@@ -7192,11 +7192,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
       "projectName": "FlyCompanyConsoleApp",
-      "projectPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
+      "projectPath": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyConsoleApp\\FlyCompanyConsoleApp.csproj",
       "packagesPath": "C:\\Users\\manda\\.nuget\\packages\\",
-      "outputPath": "D:\\dekstop\\FlyCompanyConsoleApp1\\Fly-Company-Console\\FlyCompanyConsoleApp\\obj\\",
+      "outputPath": "C:\\Users\\manda\\Desktop\\Fly\\FlyCompanyConsoleApp\\Fly-Company-Console\\FlyCompanyConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\manda\\AppData\\Roaming\\NuGet\\NuGet.Config",
